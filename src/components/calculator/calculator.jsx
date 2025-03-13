@@ -4,38 +4,88 @@ import { useState } from "react";
 
 const Calculator = () => {
   const [display, setDisplay] = useState("");
+
+  const handleClick = (value) => {
+    setDisplay(display + value);
+  };
+
+  const calculateResult = () => {
+    try {
+      const result = eval(display);
+      setDisplay(result);
+    } catch (error) {
+      setDisplay("Error,invalid entry");
+    }
+  };
+  const clearDisplay = () => {
+    setDisplay("");
+  };
   return (
     <div className="calc">
       <div className="section">
         <div className="display">{display}</div>
         <div className="buttons">
           <div className="row">
-            <div className="col">1</div>
-            <div className="col">2</div>
-            <div className="col">3</div>
-            <div className="col">+</div>
+            <button onClick={() => handleClick("1")} className="col">
+              1
+            </button>
+            <button onClick={() => handleClick("2")} className="col">
+              2
+            </button>
+            <button onClick={() => handleClick("3")} className="col">
+              3
+            </button>
+            <button onClick={() => handleClick("+")} className="col">
+              +
+            </button>
           </div>
 
           <div className="row">
-            <div className="col">4</div>
-            <div className="col">5</div>
-            <div className="col">6</div>
-            <div className="col">-</div>
+            <button onClick={() => handleClick("4")} className="col">
+              4
+            </button>
+            <button onClick={() => handleClick("5")} className="col">
+              5
+            </button>
+            <button onClick={() => handleClick("6")} className="col">
+              6
+            </button>
+            <button onClick={() => handleClick("-")} className="col">
+              -
+            </button>
           </div>
           <div className="row">
-            <div className="col">7</div>
-            <div className="col">8</div>
-            <div className="col">9</div>
-            <div className="col">*</div>
+            <button onClick={() => handleClick("7")} className="col">
+              7
+            </button>
+            <button onClick={() => handleClick("8")} className="col">
+              8
+            </button>
+            <button onClick={() => handleClick("9")} className="col">
+              9
+            </button>
+            <button onClick={() => handleClick("*")} className="col">
+              *
+            </button>
           </div>
           <div className="row">
-            <div className="col">.</div>
-            <div className="col">0</div>
-            <div className="col">=</div>
-            <div className="col">/</div>
+            <button onClick={() => handleClick(".")} className="col">
+              .
+            </button>
+            <button onClick={() => handleClick("0")} className="col">
+              0
+            </button>
+            <button onClick={calculateResult} className="col">
+              =
+            </button>
+            <button onClick={() => handleClick("/")} className="col">
+              /
+            </button>
           </div>
           <div className="row">
-            <div className="col">Clear</div>
+            <div onClick={clearDisplay} className="col">
+              Clear
+            </div>
           </div>
         </div>
       </div>
