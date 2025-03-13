@@ -1,0 +1,100 @@
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.calc {
+  background-color: #222;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  width: 100%;
+  max-width: 450px;
+  color: #fff;
+}
+
+.display {
+  background-color: #333;
+  height: 80px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+  font-size: 2.2rem;
+  overflow: hidden;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.col {
+  background-color: #444;
+  padding: 20px 0;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s;
+  font-size: 1.8rem;
+}
+
+.col:hover {
+  background-color: #666;
+}
+
+.col:active {
+  background-color: #888;
+}
+
+/* Special Button Styles */
+.col:last-child {
+  background-color: #ff9500;
+  color: #fff;
+}
+
+.col:last-child:hover {
+  background-color: #e58900;
+}
+
+/* Clear Button Styling */
+.row:last-child .col {
+  background-color: #d32f2f;
+  grid-column: span 4;
+  font-weight: bold;
+  padding: 18px 0;
+}
+
+.row:last-child .col:hover {
+  background-color: #b71c1c;
+}
+
+/* Media Queries for Better Responsiveness */
+@media (max-width: 400px) {
+  .col {
+    padding: 15px 0;
+    font-size: 1.5rem;
+  }
+
+  .display {
+    height: 60px;
+    font-size: 1.8rem;
+  }
+}
